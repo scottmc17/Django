@@ -1,0 +1,28 @@
+{% extends "learning_logs/base.html" %}
+
+{% block content %}
+<p>Topic: {{ topic.text }}</p>
+
+<ul>
+    {% for e in entries %}
+    <li>
+        <p>{{ e.date_added|date:'M d, Y H:i' }}</p>
+        <p>{{ e.text |linebreaks }}</p>
+        <p>
+            <a href="{% url 'learning_logs:edit_entry' e.id %}">Edit Entry</a>
+        </p>
+
+    </li>
+
+    {% empty %}
+    <li> There are no entries for this topic yet.</li>
+   
+
+    {% endfor %}
+</ul>
+
+<p>
+    <a href="{% url 'learning_logs:new_entry' topic.id %}">Add a new entry</a>
+</p>
+
+{% endblock content %}
