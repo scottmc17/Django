@@ -1,5 +1,7 @@
 .vscode/
 django_venv/
+.venv/
 APIs/
+
 
 
