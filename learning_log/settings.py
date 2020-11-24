@@ -36,7 +36,7 @@ INSTALLED_APPS = [
     'users',
 
     # # Third party apps. 
-    # 'bootstrap4',
+     'bootstrap4',
 
     
     'django.contrib.admin',
