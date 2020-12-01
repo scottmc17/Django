@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 
 class Topic(models.Model):
     text = models.CharField(max_length=200)
+    # auto_now=True - set this attribute to the current date and time
     date_added = models.DateTimeField(auto_now_add=True)
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
 
@@ -20,7 +21,9 @@ class Entry(models.Model):
     date_added = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        # it allows us to set a special attribute telling Django to use 
+        # it allows us to set a special attribute telling Django to use 'Entries'
+        # when it needs to refer to more than one entry. Without this, Django
+        # would refer to multiple entires as 'Entrys'.
         verbose_name_plural = 'entries'
 
     def __str__(self):
